@@ -1,10 +1,137 @@
 /******************
  * YOUR CODE HERE *
  ******************/
+const addAll = function (numbers) {
+  let sum = 0;
+  for (const item of numbers) {   //item = numbers[i]
+    sum = sum + item;
+  }
+  return sum;
+}
 
+const countSpaces = function (str) {
+  let numOfSpaces = 0
+  for (const char of str) {
+    if (char === ' ') {
+      numOfSpaces = numOfSpaces + 1
+    }
+  }
+  return numOfSpaces
+}
 
+const countTrues = function (trueOrFalse) {
+  trueValues = 0
+  for (const truthy of trueOrFalse) {
+    if (truthy === true) {
+      trueValues = trueValues + 1
+    }
+  }
+  return trueValues
+}
 
+const makeFriendly = function (paragraph) {
+  let finalSolution = ''
+  for (const element of paragraph) {
+    if (element === '.') {
+      finalSolution = finalSolution + '!';
 
+    } else {
+      finalSolution = finalSolution + element
+    }
+  }
+  return finalSolution
+}
+
+const cubeAll = function (array) {
+  const cubeStuff = []
+  for (const num of array) {
+    alsoCubingStuff = Math.pow(num, 3)
+    cubeStuff.push(alsoCubingStuff)
+  }
+  return cubeStuff
+}
+const addNoises = function (animals) {
+  const animalsWithNoises = [];
+
+  for (const animal of animals) {
+    if (animal === 'Fido' || animal === 'Rolph' || animal === 'Maisie') {
+      animalsWithNoises.push(animal + ' says "Woof!"');
+    } else if (animal === 'Garfield' || animal === 'Heathcliff') {
+      animalsWithNoises.push(animal + ' says "Meow!"');
+    } else if (animal === 'Barnie' || animal === 'Sharp Tooth') {
+      animalsWithNoises.push(animal + ' says "ROWR."');
+    }
+  }
+  return animalsWithNoises;
+}
+
+const addNoisesAlt = function (animals) {
+  const animalsWithNoises = [];
+
+  const dogs = [
+    'Fido',
+    'Rolph',
+    'Maisie',
+  ];
+
+  const cats = [
+    'Garfield',
+    'Heathcliff',
+  ]
+
+  const dinos = [
+    'Barnie',
+    'Sharp Tooth',
+  ]
+
+  for (const animal of animals) {
+    if (dogs.includes(animal)) {
+      animalsWithNoises.push(animal + ' says "Woof!"');
+    } else if (cats.includes(animal)) {
+      animalsWithNoises.push(animal + ' says "Meow!"');
+    } else if (dinos.includes(animal)) {
+      animalsWithNoises.push(animal + ' says "ROWR."');
+    }
+  }
+
+  return animalsWithNoises;
+}
+
+const womenOnly = function(people) {
+  const result = [];
+
+  for (const person of people) {
+    if (person[person.length - 1] === 'F') {
+      result.push(person);
+    }
+  }
+
+  return result;
+}
+
+const womenOnlyAlt = function(people) {
+  const result = [];
+
+  for (const person of people) {
+    if (person.endsWith('F')) {
+      result.push(person);
+    }
+  }
+
+  return result;
+}
+
+const integersOnly = function(nums) {
+  const result = [];
+
+  for (const num of nums) {
+    if (num % 1 === 0) {
+      result.push(num);
+    }
+  }
+
+  return result;
+}
 
 
 
@@ -133,7 +260,7 @@ describe('makeFriendly', () => {
   it(`given a paragraph, returns a paragraph where each sentence ends with an exclamation point instead of the period it held before.`, () => {
     const paragraph1 = `Do you see the story. Do you see anything. It seems to me I am trying to tell you a dream.`;
     const paragraph2 = `Like a running blaze on a plain, like a flash of lightning in the clouds. We live in the flicker.`;
-      const paragraph3 = `What is that feeling when you’re driving away from people and they recede on the plain till you see their specks dispersing. It’s the too-huge world vaulting us, and it’s good-bye. But we lean forward to the next crazy venture beneath the skies. Nothing behind me, everything ahead of me, as is ever so on the road.`;
+    const paragraph3 = `What is that feeling when you’re driving away from people and they recede on the plain till you see their specks dispersing. It’s the too-huge world vaulting us, and it’s good-bye. But we lean forward to the next crazy venture beneath the skies. Nothing behind me, everything ahead of me, as is ever so on the road.`;
 
     const friendly1 = `Do you see the story! Do you see anything! It seems to me I am trying to tell you a dream!`;
     const friendly2 = `Like a running blaze on a plain, like a flash of lightning in the clouds! We live in the flicker!`;
@@ -179,7 +306,7 @@ describe('cubeAll', () => {
 })
 
 describe('addNoises', () => {
-    it('adds the appropriate noises for each animal in the given array', () => {
+  it('adds the appropriate noises for each animal in the given array', () => {
     const dogs = [
       'Fido',
       'Rolph',
